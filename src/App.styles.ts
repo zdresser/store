@@ -7,8 +7,8 @@ export const Container = styled.div`
   grid-template-areas:
     "header header header"
     "search search search"
-    "items items items"
-    "items items items";
+    "products products products"
+    "products products products";
 
   background-color: #fafafa;
 `;

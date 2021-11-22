@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledSearchBar } from "./SearchBar.styles";
 
-const SearchBar = () => {
+const SearchBar: React.FC = () => {
   return (
     <StyledSearchBar>
       <input type='text' id='query' placeholder='Enter search term'></input>
