@@ -3,24 +3,39 @@ import { StyledSearchBar } from "./SearchBar.styles";
 import PriceButton from "./PriceButton";
 import CategoryButton from "./CategoryButton";
 import { SetState } from "immer/dist/internal";
+import { getSuggestedQuery } from "@testing-library/react";
 //make components for dropdown buttons?
 type Props = {
   sort: string;
   setSort: React.Dispatch<SetStateAction<string>>;
   category: string;
   setCategory: React.Dispatch<SetStateAction<string>>;
+  query: string;
+  setQuery: React.Dispatch<SetStateAction<string>>;
 };
 const SearchBar: React.FC<Props> = ({
   sort,
   setSort,
   category,
   setCategory,
+  query,
+  setQuery,
 }) => {
+  const [term, setTerm] = useState<string>("");
+  const handleSearch = (e: any) => {
+    // e.preventDefault();
+    setQuery(term);
+  };
   return (
     <StyledSearchBar>
-      <form>
-        <input type='text' id='query' placeholder='Enter search term' />
-        <button>Search</button>
+      <form onSubmit={handleSearch}>
+        <input
+          type='text'
+          placeholder='Enter search term'
+          value={term}
+          onChange={(e) => setTerm(e.target.value)}
+        />
+        <button type='submit'>Search</button>
       </form>
       <CategoryButton category={category} setCategory={setCategory} />
 

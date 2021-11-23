@@ -30,7 +30,7 @@ const CategoryButton: React.FC<Props> = ({ category, setCategory }) => {
       </button>
       <div className={show ? "newList" : "list"}>
         {categories.map((cat: string) => (
-          <button className='links' onClick={() => setCategory(cat)}>
+          <button className='links' key={cat} onClick={() => setCategory(cat)}>
             {cat}
           </button>
         ))}
