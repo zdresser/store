@@ -5,18 +5,35 @@ type Props = {
   category: string;
   setCategory: React.Dispatch<SetStateAction<string>>;
 };
+
 const CategoryButton: React.FC<Props> = ({ category, setCategory }) => {
   const [show, setShow] = useState<boolean>(false);
+  let categories = [
+    "Sports",
+    "Beauty",
+    "Music",
+    "Baby",
+    "Garden",
+    "Books",
+    "Kids",
+    "Home",
+    "Jewelry",
+    "Grocery",
+    "Electronics",
+  ];
+  categories = categories.sort();
+
   return (
     <StyledDropButton>
       <button className='dropbtn' onClick={() => setShow(!show)}>
         {category ? category : "Sort by Category"}
       </button>
       <div className={show ? "newList" : "list"}>
-        <button className='links' onClick={() => setCategory("highest")}>
-          High
-        </button>
-        {/* map through categories to make items */}
+        {categories.map((cat: string) => (
+          <button className='links' onClick={() => setCategory(cat)}>
+            {cat}
+          </button>
+        ))}
       </div>
     </StyledDropButton>
   );
