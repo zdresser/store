@@ -4,7 +4,7 @@ import { StyledHeader } from "./Header.styles";
 const Header: React.FC = () => {
   return (
     <StyledHeader>
-      <h1>Yo</h1>
+      <h1>The Nonsense Store</h1>
     </StyledHeader>
   );
 };

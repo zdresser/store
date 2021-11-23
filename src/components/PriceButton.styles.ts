@@ -1,26 +1,8 @@
 import styled from "styled-components";
 
-export const StyledSearchBar = styled.div`
-  grid-area: search;
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: 2fr 1fr 1fr;
-  height: 30px;
-  padding: 0 5px;
-
-  form {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid gray;
-  }
-
-  input {
-    flex-grow: 2;
-    border: none;
-  }
-
-  input:focus {
-    outline: none;
+export const StyledDropButton = styled.div`
+  * {
+    height: 15px;
   }
   button {
     border: 1px solid black;
@@ -31,6 +13,7 @@ export const StyledSearchBar = styled.div`
   .dropbtn {
     background-color: white;
     width: 100%;
+    height: 100%;
   }
 
   .dropbtn:hover {
@@ -41,10 +24,9 @@ export const StyledSearchBar = styled.div`
     border: none;
     outline: none;
     transition: 0.3s;
-
-    width: 100%;
-    padding: 10px 0;
+    display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .list {

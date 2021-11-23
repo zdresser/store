@@ -1,16 +1,30 @@
-import React from "react";
+import React, { SetStateAction, useState } from "react";
 import { StyledSearchBar } from "./SearchBar.styles";
-
-const SearchBar: React.FC = () => {
+import PriceButton from "./PriceButton";
+import CategoryButton from "./CategoryButton";
+import { SetState } from "immer/dist/internal";
+//make components for dropdown buttons?
+type Props = {
+  sort: string;
+  setSort: React.Dispatch<SetStateAction<string>>;
+  category: string;
+  setCategory: React.Dispatch<SetStateAction<string>>;
+};
+const SearchBar: React.FC<Props> = ({
+  sort,
+  setSort,
+  category,
+  setCategory,
+}) => {
   return (
     <StyledSearchBar>
-      <input type='text' id='query' placeholder='Enter search term'></input>
-      <div className='category'>
-        <button className='dropbtn'>Sort by Category</button>
-      </div>
-      <div className='price'>
-        <button className='dropbtn'>Sort by Price</button>
-      </div>
+      <form>
+        <input type='text' id='query' placeholder='Enter search term' />
+        <button>Search</button>
+      </form>
+      <CategoryButton category={category} setCategory={setCategory} />
+
+      <PriceButton sort={sort} setSort={setSort} />
     </StyledSearchBar>
   );
 };

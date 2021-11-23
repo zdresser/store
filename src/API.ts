@@ -20,7 +20,5 @@ export const fetchProducts = async () => {
 
   const response = await axios.get(endpoint);
 
-  return response.data[0].products.map((product: IProduct) => ({
-    ...product,
-  }));
+  return response.data[0].products;
 };

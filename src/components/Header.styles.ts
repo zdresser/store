@@ -4,8 +4,8 @@ export const StyledHeader = styled.header`
   background-color: #ebfbff;
   grid-area: header;
   height: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
   border: 3px solid lightgray;
   border-radius: 3px;
 

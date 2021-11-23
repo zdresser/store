@@ -8,7 +8,7 @@ import { IProduct, fetchProducts } from "./API";
 function App() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [sort, setSort] = useState<string>("");
-
+  const [category, setCategory] = useState<string>("");
   useEffect(() => {
     //query API for products on page load
     APIquery();
@@ -22,7 +22,12 @@ function App() {
   return (
     <Container>
       <Header />
-      <SearchBar />
+      <SearchBar
+        sort={sort}
+        setSort={setSort}
+        category={category}
+        setCategory={setCategory}
+      />
       <ProductsDisplay products={products} callback={setSort} />
     </Container>
   );
