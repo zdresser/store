@@ -4,19 +4,40 @@ import { Container } from "./App.styles";
 import Header from "./components/Header";
 import ProductsDisplay from "./components/Products";
 import SearchBar from "./components/SearchBar";
-import { IProduct, fetchProducts } from "./API";
+import { IProduct, IParams, fetchProducts } from "./API";
+
 function App() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [query, setQuery] = useState<string>("");
   const [sort, setSort] = useState<string>("");
   const [category, setCategory] = useState<string>("");
-  useEffect(() => {
-    //query API for products on page load
-    APIquery();
-  }, []);
 
-  const APIquery = async () => {
-    const prods = await fetchProducts();
+  let params: IParams = {
+    query,
+    price: sort,
+    category,
+  };
+
+  useEffect(() => {
+    //populate params obj
+    if (query) {
+      params.query = query;
+    }
+    if (sort) {
+      params.price = sort;
+    }
+    if (category) {
+      params.category = category;
+    }
+    //query API for products on page load
+    APIquery(params);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, sort, category]);
+
+  const APIquery = async (params: IParams) => {
+    setProducts([]);
+    console.log(params);
+    const prods = await fetchProducts(params);
     setProducts(prods);
   };
 

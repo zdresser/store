@@ -23,7 +23,7 @@ const SearchBar: React.FC<Props> = ({
 }) => {
   const [term, setTerm] = useState<string>("");
   const handleSearch = (e: any) => {
-    // e.preventDefault();
+    e.preventDefault();
     setQuery(term);
   };
   return (

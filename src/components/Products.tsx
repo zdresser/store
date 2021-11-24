@@ -14,6 +14,7 @@ const ProductsDisplay: React.FC<ProductsProps> = ({ products, callback }) => {
         return (
           <ProductCard
             _id={product._id}
+            key={product._id}
             name={product.name}
             image={product.image}
             category={product.category}

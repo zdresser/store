@@ -15,10 +15,19 @@ export interface IProduct {
   reviews: Review[];
 }
 
-export const fetchProducts = async () => {
+export interface IParams {
+  query?: string;
+  price?: string;
+  category?: string;
+}
+
+export const fetchProducts = async (params: IParams) => {
   const endpoint = "http://localhost:8000/products";
 
-  const response = await axios.get(endpoint);
+  const response = await axios.get(endpoint, {
+    params,
+  });
+  console.log(response);
 
   return response.data[0].products;
 };

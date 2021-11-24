@@ -34,6 +34,9 @@ const CategoryButton: React.FC<Props> = ({ category, setCategory }) => {
             {cat}
           </button>
         ))}
+        <button className='links' key={"reset"} onClick={() => setCategory("")}>
+          Reset
+        </button>
       </div>
     </StyledDropButton>
   );
